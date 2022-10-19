@@ -120,12 +120,11 @@ for (let i = 0; i < titles.length; i++) {
 }
 
 /*bookmark*/
-const bookmark = document.querySelectorAll('#bookmark,#bookmarkboard');
-const bookmarkadd = document.querySelectorAll('#bookmarkpluss,#bookplusboardinner');
+const bookmarkadd = document.querySelectorAll('#bookmarkpluss,#bookplusboardinner,#bookplusREy');
 const bookmarkbg = document.querySelectorAll('.ipc-watchlist-ribbon__bg-ribbon');
 
-for (let i = 0; i < bookmark.length; i++) {
-    bookmark[i].addEventListener('click', event => {
+for (let i = 0; i < bookmarkadd.length; i++) {
+    bookmarkadd[i].addEventListener('click', event => {
         let add = '✓';
 
         if (bookmarkadd[i].textContent == add) {
@@ -136,5 +135,26 @@ for (let i = 0; i < bookmark.length; i++) {
             bookmarkadd[i].textContent = add;
             bookmarkbg[i].classList.add('active');
         }
+    })
+}
+
+//swiper
+    var swiper = new Swiper(".mySwipersw", {
+        effect: "cards",
+            /*grabCursor: true,*/
+    });
+
+//img click
+const img = document.querySelectorAll('#swipersw-slide')
+
+for (let i = 0; i < img.length; i++) {
+    img[i].addEventListener('click', ev => {
+        console.log('hello')
+        let image = document.createElement('a')
+        console.log(image)
+        image.setAttribute('href', 'https://www.imdb.com/title/tt0926084/?ref_=hm_tpks_tt_t_1_pd_tp1_pbr_ic');
+        ev.target.appendChild(image);
+        
+
     })
 }
