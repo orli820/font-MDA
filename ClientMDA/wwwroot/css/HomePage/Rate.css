@@ -73,7 +73,9 @@
     color: #00b0f0;
     z-index: 7;
 }
-
+#fafastarrate, .rating > label {
+    color: rgba(245,197,24);
+}
 .modalst > #fafastarrate,
 .modalstE > #fafastarrateE {
     padding-left: 34%
@@ -131,11 +133,14 @@
     /*改字的顏色*/
     color: rgba(245,197,24);
 }
-
-#in-rating-movie, #in-rating-movieE {
-    font-size: 2rem;
-    padding-top: 10px;
+#rating-it {
+    color: #00b0f0;
 }
+
+    #in-rating-movie, #in-rating-movieE {
+        font-size: 2rem;
+        padding-top: 10px;
+    }
 
 #rating-title, #rating-titleE {
     text-align: center;

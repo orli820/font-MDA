@@ -27,7 +27,7 @@
                 <div class="hangposter">
                     <img class="" src="https://movies.yahoo.com.tw/i/o/production/movies/September2022/kUTqJeKB5TxcV4MdB5Vk-1080x1543.jpg" alt="電影版 後空翻少年！！">
                     <div class="ipc-watchlist-ribbon ipc-focusable ipc-watchlist-ribbon--m ipc-watchlist-ribbon--baseAlt ipc-watchlist-ribbon--onImage ipc-poster__watchlist-ribbon poster-card-watchlist-ribbon" aria-label="add to watchlist" role="button" tabindex="0" id="bookmark">
-                        <svg class="ipc-watchlist-ribbon__bg" width="48px" height="48px" color="red" viewBox="0 0 24 34" xmlns="http://www.w3.org/2000/svg" role="presentation" id="BOOOKmark">
+                        <svg class="ipc-watchlist-ribbon__bg" width="48px" height="48px" @*color="red"*@ viewBox="0 0 24 34" xmlns="http://www.w3.org/2000/svg" role="presentation" id="BOOOKmark">
                             <polygon class="ipc-watchlist-ribbon__bg-ribbon" fill="#000000" points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343" id="BOOOkmark"></polygon>
                             <polygon class="ipc-watchlist-ribbon__bg-hover" points="24 0 0 0 0 32 12.2436611 26.2926049 24 31.7728343" id="BOOokmark"></polygon>
                             <polygon class="ipc-watchlist-ribbon__bg-shadow" points="24 31.7728343 24 33.7728343 12.2436611 28.2926049 0 34 0 32 12.2436611 26.2926049" id="BOokmark"></polygon>
@@ -1899,13 +1899,14 @@
     </div>
 </div>
 
-<div @*class="swiper mySwipermyList" id="mylist"*@>
-
-    <div> <span id="addmylist">快來新增你的專屬片單吧!</span></div>
-    <div id="pluslist">
-        <button class="AddListBtn" id="addlistbtn" onclick="window.location.href='/Member/Login'">
-            新增片單
-        </button>
+<div @*class="swiper mySwipermyList"*@ id="mylist">
+    <div id="loginlist">
+        <div> <span id="addmylist">快來新增你的專屬片單吧!</span></div>
+        <div id="pluslist">
+            <button class="AddListBtn" id="addlistbtn" onclick="window.location.href='/Member/Login'">
+                新增片單
+            </button>
+        </div>
     </div>
 </div>
 
@@ -1940,6 +1941,7 @@
 </div>
 <div id="overlay"></div>
 
+@*期待度*@
 <div class="modalstE " id="modalE">
     <div class="fa fa-star " id="fafastarrateE">
         <span id="rate-numberE">?</span>
@@ -1951,7 +1953,7 @@
     </div>
     <div class="modal-rating-bodyE" id="modal-rating-bodyE">
         <div id="rating-titleE">
-            <span id="rating-itE">評分它</span>
+            <span id="rating-itE">你有多期待</span>
             <div id="in-rating-movieE">
                 <span id="rating-movie-headerE"></span>
             </div>
@@ -1972,104 +1974,11 @@
 
 
 @section Scripts{
-
-
     <script>
-
-        const openModalButtons = document.querySelectorAll('[data-modal-target]')
-        const closeModalButtons = document.querySelectorAll('[data-close-button]')
-        const overlay = document.getElementById('overlay')
-        const headerofstar = document.getElementById("in-rating-movie");
-
-        for (let i = 0; i < openModalButtons.length; i++) {
-            openModalButtons[i].addEventListener('click', event => {
-                const modal = document.querySelector("#modal")
-                openModal(modal)
-                const f = $(event.currentTarget).parents(".box").find("h5")[0].textContent
-                headerofstar.textContent = f
-                  
-            })
-        }
-
-        overlay.addEventListener('click', () => {
-            const modals = document.querySelectorAll('.modalst.active')
-            modals.forEach(modal => {
-                closeModal(modal)
-            })
-        })
-
-        closeModalButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = button.closest('.modalst')
-                closeModal(modal)
-            })
-        })
-
-        function openModal(modal) {
-            if (modal == null) return
-            modal.classList.add('active')
-            overlay.classList.add('active')
-        }
-
-        function closeModal(modal) {
-            if (modal == null) return
-            modal.classList.remove('active')
-            overlay.classList.remove('active')
-        }
-       
-
-        const openModalButtonsE = document.querySelectorAll('#openbtnE')
-        const closeModalButtonsE = document.querySelectorAll('#closebtnE')
-        const overlayE = document.getElementById('overlayE')
-        const headerofstarE = document.getElementById("in-rating-movieE");
-
-        for (let i = 0; i < openModalButtonsE.length; i++) {
-            openModalButtonsE[i].addEventListener('click', event => {
-                const modal = document.querySelector("#modalE")
-                openModal(modal)
-                const f = $(event.currentTarget).parents(".box").find("h5")[0].textContent
-                headerofstarE.textContent = f
-                console.log(f)
-
-
-            })
-        }
-
-        overlay.addEventListener('click', () => {
-            const modals = document.querySelectorAll('.modalstE.active')
-            modals.forEach(modal => {
-                closeModal(modal)
-            })
-        })
-
-        closeModalButtonsE.forEach(button => {
-            button.addEventListener('click', () => {
-                const modal = button.closest('.modalstE')
-                closeModal(modal)
-            })
-        })
-
-        const titles = document.querySelectorAll('h5 a');
-        console.log(titles)
-        for (let i = 0; i < titles.length; i++) {
-            console.log(titles[i].innerText)
-            if (titles[i].innerText.length >= 9) {
-                titles[i].style.fontSize = "1.15rem";
-
-            }
-        }
 
     </script>
 }
 
-
-
-
-
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script src="~/js/HomePage/banner.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> @*footer樣式*@
-
