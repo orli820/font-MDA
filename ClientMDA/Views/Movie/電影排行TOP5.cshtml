@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "電影排行TOP5";
+}
+@section Styles{
+    <style>
+
+        /*.text-white {
+            height: 100%;
+        }
+
+        .header {
+            height: 274px;
+            position: absolute;
+            top: 0;
+            z-index: 900;
+        }
+
+        .footer {
+            height: 274px;*/ /*新增footer高度*/
+        /*top: -500px;
+        }*/
+
+        ol {
+            list-style-type: none;
+        }
+
+        .leaderboard {
+            margin-bottom: 300px;
+        }
+
+        /*        .container body-content {
+            position: absolute;
+            min-height: 100%;
+            外層高度100 % margin-bottom: -274px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }*/
+
+    </style>
+}
+<link href="~/css/Comment/排行TOP5.css" rel="stylesheet" /> @*電影排行-TOP5 CSS*@
+
+<h3>M.D.A. 電影排行</h3>
+
+
+<body>
+    <div class="leaderboard">
+        <h1>
+            <svg class="ico-cup">
+                <use xlink:href="#cup"></use>
+            </svg>列表或排行样式
+        </h1>
+        <ol>
+            <li>
+                <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@@._V1_UY67_CR0,0,45,67_AL_.jpg" />
+                <mark>刺激1995</mark>
+                <span>The Shawshank Redemption</span>
+                <span>(1994)</span>
+                <span><i class="fa fa-star"></i>5.0</span>
+                <span><i class="fa fa-star-o"></i>0.0</span>
+                <div class="wl-ribbon standalone touch not-inWL" title="Click to add to watchlist"></div>
+            </li>
+            <li><img src="" /><mark>電影中文標題2</mark><small>301</small></li>
+            <li><img src="" /><mark>電影中文標題3</mark><small>292</small></li>
+            <li><img src="" /><mark>電影中文標題4</mark><small>245</small></li>
+            <li><img src="" /><mark>電影中文標題5</mark><small>203</small></li>
+        </ol>
+    </div>
+
+
+</body>
+
+@*<script src="http://cdn.bootstrapmb.com/console-ban.min.js"></script>
+    <link rel="stylesheet" href="reset.min.css">
+    <link rel="stylesheet" href="./style.css">*@
+
+
+
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> @*footer樣式*@
+
+
+
+
+

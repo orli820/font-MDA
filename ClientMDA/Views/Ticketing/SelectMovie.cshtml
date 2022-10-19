@@ -1,0 +1,53 @@
+﻿@{
+
+}
+
+<style>
+    .col-md-4:hover {
+        color: #6C6C6C;
+        font-size:105%;
+    }
+</style>
+
+<section class="container m-auto pb-1" style="padding-top:5%">
+    <div class="row mb-3 justify-content-center">
+        <div class="col-md-4 themed-grid-col font-weight-bolder" style="font-size: 50px; text-align: center; cursor: pointer;" id="SelectMovie">選擇電影</div>
+        <div class="col-md-4 themed-grid-col font-weight-bolder" style="font-size: 50px; text-align: center; cursor: pointer;" id="SelectTheater">選擇影院</div>
+    </div>
+
+    <div class="container-sm m-auto pt-0" id="partialView">
+
+    </div>
+
+
+</section>
+
+<div id="preloader">
+    <div class="line"></div>
+</div>
+<script src="~/js/bootstrap.js"></script>
+<script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="~/assets/vendor/aos/aos.js"></script>
+<script src="~/assets/vendor/php-email-form/validate.js"></script>
+<script src="~/assets/js/main.js"></script>
+<script>
+    const selectMovie = document.querySelector("#SelectMovie")
+    const selectTheater = document.querySelector("#SelectTheater")
+    const View = document.querySelector("#partialView")
+
+    $('#partialView').load('@Url.Action("MoviePartialView")')
+
+    selectTheater.addEventListener("click", () => {
+        $('#partialView').load('@Url.Action("SelectPartialView")')
+        console.log("click")
+        View.load('@Url.Action("SelectPartialView")')
+    })
+
+    selectMovie.addEventListener("click", () => {
+        $('#partialView').load('@Url.Action("MoviePartialView")')
+        console.log("click")
+    })
+</script>
+
