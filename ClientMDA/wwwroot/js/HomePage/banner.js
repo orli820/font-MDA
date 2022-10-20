@@ -147,14 +147,14 @@ for (let i = 0; i < bookmarkadd.length; i++) {
 //img click
 const img = document.querySelectorAll('#swipersw-slide')
 
-for (let i = 0; i < img.length; i++) {
-    img[i].addEventListener('click', ev => {
-        console.log('hello')
-        let image = document.createElement('a')
-        console.log(image)
-        image.setAttribute('href', 'https://www.imdb.com/title/tt0926084/?ref_=hm_tpks_tt_t_1_pd_tp1_pbr_ic');
-        ev.target.appendChild(image);
+//for (let i = 0; i < img.length; i++) {
+//    img[i].addEventListener('click', ev => {
+//        console.log('hello')
+//        let image = document.createElement('a')
+//        console.log(image)
+//        image.setAttribute('href', 'https://www.imdb.com/title/tt0926084/?ref_=hm_tpks_tt_t_1_pd_tp1_pbr_ic');
+//        ev.target.appendChild(image);
         
 
-    })
-}
+//    })
+//}

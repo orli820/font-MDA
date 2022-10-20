@@ -109,12 +109,14 @@ content-banner :hover {
     fill: rgb(35, 35,37,.5);
     z-index: 5;
 }
-#BOOOKmark, #BOOOKmarkboard, #BOOOKmarkRE {
-    fill: rgb(35, 35,37,.5);
-    z-index: 5;
+
+#bookmark, #bookmarkboard, #bookmarkRE {
+    /*background-color: red;*/
+    height: 10%;
+    /* width:90%;*/
 }
 /*#BOOOkmark, #BOOOkmarkboard*/
-.ipc-watchlist-ribbon__bg-ribbon{
+.ipc-watchlist-ribbon__bg-ribbon {
     fill: rgb(35, 35,37,.6);
     border: solid;
     border-color: rgb(128 128 128);

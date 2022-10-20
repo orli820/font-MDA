@@ -12,15 +12,18 @@ namespace ClientMDA.Controllers
     public class HomePageController : Controller
     {
         private readonly ILogger<HomePageController> _logger;
+        private readonly MDAContext _MDA;
 
-        public HomePageController(ILogger<HomePageController> logger)
+        public HomePageController(ILogger<HomePageController> logger, MDAContext MDA)
         {
+            _MDA = MDA;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
             return View();
+
         }
 
         public IActionResult Privacy()
