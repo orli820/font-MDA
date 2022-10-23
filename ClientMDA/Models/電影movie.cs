@@ -24,13 +24,14 @@ namespace ClientMDA.Models
         public string 中文標題titleCht { get; set; }
         public string 英文標題titleEng { get; set; }
         public int 上映年份releaseYear { get; set; }
-        public DateTime? 上映日期releaseDate { get; set; }
+        public string 上映日期releaseDate { get; set; }
         public int 片長runtime { get; set; }
         public int 電影分級編號ratingId { get; set; }
         public decimal? 評分rate { get; set; }
         public decimal? 期待度anticipation { get; set; }
         public string 票房boxOffice { get; set; }
         public string 劇情大綱plot { get; set; }
+        public string 預告片trailer { get; set; }
 
         public virtual 系列電影movieSeries 系列編號series { get; set; }
         public virtual 電影分級movieRating 電影分級編號rating { get; set; }
