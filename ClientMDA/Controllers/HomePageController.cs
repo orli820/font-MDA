@@ -27,6 +27,17 @@ namespace ClientMDA.Controllers
 
         }
 
+        public IActionResult showrankposter()
+        {
+            //var rank = _MDA.電影排行movieRanks.Where(p => p.電影movie != null).Select(p => p.電影movie).ToString();           
+            //var movieposter = _MDA.電影圖片總表movieImages.Where(p => p.電影名稱movieName == rank).Select(p => p.圖片雲端imageImdb);
+            var q = from a in _MDA.電影movies
+                    where a.英文標題titleEng != null
+                    select a;
+            return Json(q);
+
+        }
+
         //public IActionResult Privacy()
         //{
         //    return View();

@@ -32,30 +32,30 @@ namespace ClientMDA.Controllers
 
         }
 
-        public IActionResult getRank()
-        {
-            var rank = _MDA.電影排行movieRanks.Where(p => p.電影movie != null).Select(p => p.電影movie).ToString();
-            var movietitle = _MDA.電影movies.Where(m => m.中文標題titleCht == rank).Select(m => m.中文標題titleCht).ToList();
-            var movieposter = _MDA.電影圖片總表movieImages.Where(p => p.電影名稱movieName == rank).Select(p => p.圖片雲端imageImdb).ToList();
-            return Json(movietitle, movieposter);
+        //public IActionResult getRank()
+        //{
+        //    var rank = _MDA.電影排行movieRanks.Where(p => p.電影movie != null).Select(p => p.電影movie).ToString();
+        //    var movietitle = _MDA.電影movies.Where(m => m.中文標題titleCht == rank).Select(m => m.中文標題titleCht).ToList();
+        //    var movieposter = _MDA.電影圖片總表movieImages.Where(p => p.電影名稱movieName == rank).Select(p => p.圖片雲端imageImdb).ToList();
+        //    return Json(movietitle, movieposter);
 
-        }
+        //}
         public IActionResult showrankposter()
         {
-            //var rank = _MDA.電影排行movieRanks.Where(p => p.電影movie != null).Select(p => p.電影movie).ToString();           
-            //var movieposter = _MDA.電影圖片總表movieImages.Where(p => p.電影名稱movieName == rank).Select(p => p.圖片雲端imageImdb);
-            var q = from a in _MDA.電影movies
-                    where a.英文標題titleEng != null
-                    select a;
-            return Json(q);
-
+            var q = from a in _MDA.電影圖片總表movieImages
+                    join b in _MDA.電影排行movieRanks on a.電影名稱movieName equals b.電影movie
+                    where a.電影名稱movieName == b.電影movie 
+                    orderby b.排行編號rankId ascending
+                    select a.圖片雲端imageImdb;
+            return Json(q);           
         }
 
-        public IActionResult get()
+        public IActionResult showrankmovie()
         {
-            var q = from a in _MDA.電影分級movieRatings
-                    select a;
-            return Json(q);
+            var q1 = from a in _MDA.電影排行movieRanks
+                    where a.電影排行movieRank1!=null
+                    select a.電影movie;
+            return Json(q1);
         }
     }
 }

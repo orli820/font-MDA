@@ -75,7 +75,17 @@
     <link rel="stylesheet" href="reset.min.css">
     <link rel="stylesheet" href="./style.css">*@
 
+@section Scripts{ 
+    <script>
+     async function rankposter() {
+            let response = await fetch("@Url.Content("~/api/showrankposter")");
+            let data = await response.json();
 
+            console.log(data)           
+        }
+        rankposter();
+    </script>
+}
 
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> @*footer樣式*@
 

@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+.blur{
+    width:424px;
+    height:628px;
+}
 .info {
     padding-top: 90px;
     /*padding-top: 80px;*/

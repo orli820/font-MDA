@@ -67,14 +67,14 @@ namespace ClientMDA.Models
         public virtual DbSet<電影語言movieLanguage> 電影語言movieLanguages { get; set; }
         public virtual DbSet<電影院theater> 電影院theaters { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MDA;Integrated Security=True");
-//            }
-//        }
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MDA;Integrated Security=True");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -1217,19 +1217,24 @@ namespace ClientMDA.Models
 
             modelBuilder.Entity<電影排行movieRank>(entity =>
             {
-                entity.HasKey(e => e.排行編號rankId);
+                entity.HasKey(e => e.排行編號rankId)
+                    .HasName("PK_電影排行MovieRank_1");
 
                 entity.ToTable("電影排行MovieRank");
 
                 entity.Property(e => e.排行編號rankId).HasColumnName("排行編號Rank_ID");
 
                 entity.Property(e => e.電影movie)
-                    .HasMaxLength(50)
+                    .HasMaxLength(100)
                     .HasColumnName("電影Movie");
 
-                entity.Property(e => e.電影排名movieRank)
+                entity.Property(e => e.電影排行movieRank1)
                     .HasMaxLength(5)
-                    .HasColumnName("電影排名Movie_Rank");
+                    .HasColumnName("電影排行Movie_Rank");
+
+                entity.Property(e => e.電影英movieEn)
+                    .HasMaxLength(100)
+                    .HasColumnName("電影英Movie_En");
             });
 
             modelBuilder.Entity<電影片種movieType>(entity =>
