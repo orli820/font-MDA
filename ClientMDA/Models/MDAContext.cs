@@ -1010,7 +1010,9 @@ namespace ClientMDA.Models
 
                 entity.Property(e => e.上映年份releaseYear).HasColumnName("上映年份Release_Year");
 
-                entity.Property(e => e.上映日期releaseDate).HasColumnName("上映日期Release_Date");
+                entity.Property(e => e.上映日期releaseDate)
+                    .HasColumnType("date")
+                    .HasColumnName("上映日期Release_Date");
 
                 entity.Property(e => e.中文標題titleCht)
                     .HasMaxLength(50)
